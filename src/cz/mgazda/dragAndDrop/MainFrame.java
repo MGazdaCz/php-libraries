@@ -16,6 +16,17 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+        zoomTextField.addActionListener(new java.awt.event.ActionListener() {
+            
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+
+                MainPanel panel = (MainPanel) mainPanel;
+        
+                panel.setZoom(Integer.parseInt(zoomTextField.getText()));     
+            }
+        });
     }
 
     /**
@@ -27,9 +38,16 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
         mainPanel = new MainPanel();
+        jPanel1 = new javax.swing.JPanel();
+        zoomSlider = new javax.swing.JSlider();
+        zoomLabel = new javax.swing.JLabel();
+        zoomTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jSplitPane1.setName("jSplitPane1"); // NOI18N
 
         mainPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         mainPanel.setName("mainPanel"); // NOI18N
@@ -38,12 +56,57 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 599, Short.MAX_VALUE)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+            .addGap(0, 531, Short.MAX_VALUE)
         );
+
+        jSplitPane1.setLeftComponent(mainPanel);
+
+        jPanel1.setName("jPanel1"); // NOI18N
+
+        zoomSlider.setMaximum(1000);
+        zoomSlider.setMinimum(10);
+        zoomSlider.setToolTipText("");
+        zoomSlider.setValue(100);
+        zoomSlider.setName("zoomSlider"); // NOI18N
+
+        zoomLabel.setText("Zoom");
+        zoomLabel.setName("zoomLabel"); // NOI18N
+
+        zoomTextField.setText("100");
+        zoomTextField.setName("zoomTextField"); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(zoomSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(zoomLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zoomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(zoomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zoomLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(zoomSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(482, Short.MAX_VALUE))
+        );
+
+        jSplitPane1.setRightComponent(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,14 +114,14 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
 
@@ -101,6 +164,11 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel zoomLabel;
+    private javax.swing.JSlider zoomSlider;
+    private javax.swing.JTextField zoomTextField;
     // End of variables declaration//GEN-END:variables
 }

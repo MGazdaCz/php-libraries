@@ -19,6 +19,8 @@ import javax.swing.JPanel;
  * @author Milan Gazda <gazda@soma-eng.cz>
  */
 public class MainPanel extends JPanel {
+    
+    int zoom = 1;
 
     Rectangle activeRectangle;
     
@@ -103,6 +105,9 @@ public class MainPanel extends JPanel {
         
         Graphics2D g2d = (Graphics2D) g;
         
+        // TODO - prozkoumat jak presne funguje
+        //g2d.scale(zoom, zoom);
+        
         for (Iterator<Rectangle> it = seznamObjektu.iterator(); it.hasNext();) {
             Rectangle r = it.next();
             
@@ -122,6 +127,9 @@ public class MainPanel extends JPanel {
         return null;
     }
     
+    public void setZoom(int zoom) {
+        this.zoom = zoom;
+    }
     
 
 }
