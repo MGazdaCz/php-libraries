@@ -1,6 +1,6 @@
 <?php
 
-namespace MGazdaCz\PhpLibraries\ConsoleParams;
+namespace MGazdaCz\PhpLibraries;
 
 class ConsoleParams {
 
