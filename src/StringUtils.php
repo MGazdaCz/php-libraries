@@ -1,5 +1,7 @@
 <?php
 
+namespace MGazdaCz\PhpLibraries\ConsoleParams;
+
 class StringUtils {
 
     /**
