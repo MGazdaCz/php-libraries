@@ -1,8 +1,8 @@
 <?php
 
-namespace MGazdaCz\PhpLibraries;
+namespace MGazdaCz\PhpLibraries\String;
 
-class StringUtils {
+class Utils {
 
     /**
      * Metoda hleda bud text nebo pole textu pomoci metody strpos.
