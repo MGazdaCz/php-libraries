@@ -8,12 +8,21 @@ use MGazdaCz\PhpLibraries\String\KeyWordBuilder;
  * Jednoducha trida pro analyzu predanych vet (slov)
  */
 class WordAnalyzer {
+    private $multiWordWords = true;
+    
     private $words     = [];
     private $keyWords  = [];
     private $keyWords2 = [];
 
     public function __construct() {
 
+    }
+    
+    /**
+     * Vypne podporu budovani viceslovnych slov.
+     */
+    public function disableMultiwordWords() {
+      $this->multiWordWords = false;
     }
 
     /**
@@ -37,19 +46,21 @@ class WordAnalyzer {
             }
 
             // kontrola viceslovnych slov (kombinaci)
-            $keyWordBuilder = new KeyWordBuilder($keyWords);
-            $keyWordBuilder->buildKeyWords();
-            foreach ($keyWordBuilder->getKeyWords() as $newKeyWord) {
-                if (empty($word) || empty($newKeyWord)) {
-                    continue;
-                }
-                if (strpos($word, $newKeyWord) !== false) {
-                    if (isset($this->keyWords2[$newKeyWord])) {
-                        $this->keyWords2[$newKeyWord]++;
-                    } else {
-                        $this->keyWords2[$newKeyWord] = 1;
-                    }
-                }
+            if ($this->multiWordWords) {
+              $keyWordBuilder = new KeyWordBuilder($keyWords);
+              $keyWordBuilder->buildKeyWords();
+              foreach ($keyWordBuilder->getKeyWords() as $newKeyWord) {
+                  if (empty($word) || empty($newKeyWord)) {
+                      continue;
+                  }
+                  if (strpos($word, $newKeyWord) !== false) {
+                      if (isset($this->keyWords2[$newKeyWord])) {
+                          $this->keyWords2[$newKeyWord]++;
+                      } else {
+                          $this->keyWords2[$newKeyWord] = 1;
+                      }
+                  }
+              }
             }
         }
     }

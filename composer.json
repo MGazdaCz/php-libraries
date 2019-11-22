@@ -12,7 +12,8 @@
     },
     "autoload" : {
         "psr-4" : {
-            "MGazdaCz\\PhpLibraries\\" : "src/"
+            "MGazdaCz\\PhpLibraries\\" : "src/",
+            "MGazdaCz\\PhpLibraries\\Tests\\" : "tests/"
         }
     }
 }
