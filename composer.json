@@ -6,9 +6,9 @@
         "type": "vcs"
     },
     "require" : {
-        "php": ">=7.0",
-        "symfony/console": "^4.3",
-        "nette/utils": "^3.0"
+        "php": ">=7.1",
+        "kdyby/console": "^2.7",
+        "nette/utils": "^2.4"
     },
     "autoload" : {
         "psr-4" : {
